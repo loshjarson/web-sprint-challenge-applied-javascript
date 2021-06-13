@@ -76,7 +76,12 @@ After finishing your required elements, you can push your work further. These go
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+The DOM is a programming interface which represents an html document as a tree of nodes and objects. And it allows programs to change the structure, content, and style of the document
 2. What is an event?
+An event is when a user interacts with an html page (possible interactions include: clicking, scrolling, hovering, changing the window size, etc.)
 3. What is an event listener?
+An event listener is attached to an html element and triggers a specific function when avtivated by a specific user interaction
 4. Why would we convert a NodeList into an Array?
+When you need to use push(), pop(), slice(), or join() on the NodeList
 5. What is a component?
+A component is a piece of code which is both independent and reusable, and contains HTML, CSS, or JavaScript
