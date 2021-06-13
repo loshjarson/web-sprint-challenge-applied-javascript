@@ -54,8 +54,35 @@ const cardAppender = (selector) => {
           topicsArray.push(property)
           });
         }
+        const tabs = document.querySelectorAll(".tab");
+          tabs.forEach(tab => {
+            tab.addEventListener("click", event => {
+              topicsArray.forEach(topic => {
+                if (event.target.textContent.includes(topic)){
+                  const cards = document.querySelectorAll(`.${topic}`)
+                  cards.forEach(card => {
+                    card.style.display = "flex"
+                  })
+                } else {
+                  const cards = document.querySelectorAll(`.${topic}`)
+                  cards.forEach(card => {
+                    card.style.display = "none"
+                  })
+                }
+              })
+            })
+          });
+        const title = document.querySelector(".header > h1");
+        title.addEventListener("click", event => {
+          topicsArray.forEach(topic => {
+            const cards = document.querySelectorAll(`.${topic}`)
+                  cards.forEach(card => {
+                    card.style.display = "flex"
+                  })
+          });
         })
-      }
+      })
+    }
 
   // TASK 6
   // ---------------------
