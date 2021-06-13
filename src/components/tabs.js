@@ -1,11 +1,13 @@
+
 const Tabs = (topics) => {
   const topicsContainer = document.createElement("div");
   topicsContainer.className = "topics"
-  topics.forEach(element => {
+  
+  topics.forEach((element, index) => {
     const tab = document.createElement("div");
     tab.className = "tab";
     tab.textContent = element;
-    topicsContainer.appendChild(tab);    
+    topicsContainer.appendChild(tab);  
   });
   return topicsContainer
 }
@@ -28,7 +30,7 @@ import axios from "axios"
 
 const tabsAppender = (selector) => {
   const tabsContainer = document.querySelector(selector);
-  const topics = axios.get('https://lambda-times-api.herokuapp.com/topics')
+  const request = axios.get('https://lambda-times-api.herokuapp.com/topics')
       .then (response => {
         tabsContainer.appendChild(Tabs(response.data.topics));
       })

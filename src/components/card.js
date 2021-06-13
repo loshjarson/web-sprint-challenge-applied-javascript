@@ -1,6 +1,8 @@
-const Card = (article) => {
+
+const Card = (article, topic) => {
   const card = document.createElement("div");
   card.className = "card";
+  card.classList.add(topic);
   const headline = document.createElement("headline");
   headline.className = "headline";
   headline.textContent = article.headline;
@@ -41,17 +43,39 @@ const Card = (article) => {
 import axios from "axios"
 
 const cardAppender = (selector) => {
+  const topicsArray = [];
   const cardContainer = document.querySelector(selector);
-  const topics = axios.get('https://lambda-times-api.herokuapp.com/articles')
+  const request = axios.get('https://lambda-times-api.herokuapp.com/articles')
       .then (response => {
         const object = response.data.articles;
         for (const property in object){
           object[property].forEach(article => {
-          cardContainer.appendChild(Card(article));  
+          cardContainer.appendChild(Card(article, property));
+          topicsArray.push(property)
           });
         }
+        const tabs = document.querySelectorAll(".tab");
+          tabs.forEach(tab => {
+            tab.addEventListener("click", event => {
+              topicsArray.forEach(topic => {
+                if (event.target.textContent.includes(topic)){
+                  const cards = document.querySelectorAll(`.${topic}`)
+                  cards.forEach(card => {
+                    card.style.display = "flex"
+                  })
+
+                } else {
+                  const cards = document.querySelectorAll(`.${topic}`)
+                  cards.forEach(card => {
+                    card.style.display = "none"
+                  })
+                }
+              })
+            })
+          });
       })
 }
+
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
@@ -60,4 +84,4 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
-export { Card, cardAppender }
+export { Card, cardAppender}
