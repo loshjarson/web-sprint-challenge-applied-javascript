@@ -63,7 +63,6 @@ const cardAppender = (selector) => {
                   cards.forEach(card => {
                     card.style.display = "flex"
                   })
-
                 } else {
                   const cards = document.querySelectorAll(`.${topic}`)
                   cards.forEach(card => {
@@ -73,6 +72,15 @@ const cardAppender = (selector) => {
               })
             })
           });
+        const title = document.querySelector(".header > h1");
+        title.addEventListener("click", event => {
+          topicsArray.forEach(topic => {
+            const cards = document.querySelectorAll(`.${topic}`)
+                  cards.forEach(card => {
+                    card.style.display = "flex"
+                  })
+          });
+        })
       })
 }
 
