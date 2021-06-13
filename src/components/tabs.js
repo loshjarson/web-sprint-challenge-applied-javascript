@@ -28,7 +28,7 @@ import axios from "axios"
 
 const tabsAppender = (selector) => {
   const tabsContainer = document.querySelector(selector);
-  const userData = axios.get('https://lambda-times-api.herokuapp.com/topics')
+  const topics = axios.get('https://lambda-times-api.herokuapp.com/topics')
       .then (response => {
         tabsContainer.appendChild(Tabs(response.data.topics));
       })

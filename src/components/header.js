@@ -28,7 +28,7 @@ const Header = (title, date, temp) => {
   //
 const headerAppender = (selector) => {
   const headContainer = document.body.querySelector(selector);
-  const newHeader = Header("Joshua Larson", "1726", "I found evidence of aliens");
+  const newHeader = Header("Lambda Times", "January 6, 1726", "26 degrees");
   headContainer.appendChild(newHeader);
 }
   // TASK 2
