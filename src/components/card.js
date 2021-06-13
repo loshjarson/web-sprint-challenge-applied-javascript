@@ -54,8 +54,8 @@ const cardAppender = (selector) => {
           topicsArray.push(property)
           });
         }
-        
-}
+        })
+      }
 
   // TASK 6
   // ---------------------
